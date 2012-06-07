@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- =================================================== -->
+<!-- copyright 2000 by voxeo corporation. (see LGPL.txt) -->
+<!-- 										  			 -->
+<!-- v1.0 Coded in CallXML								 -->
+<!-- v1.0 Coded by Ryan Campbell and Stephen J. Lewis	 -->
+<!-- =================================================== -->
+
+<callxml>
+  <block label="adminMenu" repeat="3">
+    <playaudio format="audio/wav" value="$audiorootdir;/adminMenuAnnounce.wav" 
+               termdigits="1234567*" cleardigits="true"/> 
+    <playaudio format="audio/wav" value="$audiorootdir;/adminMenu.wav"
+               termdigits="1234567*" cleardigits="false"/>
+			   
+	  <!-- =============================== -->
+	  <!-- Press 1 to change greeting file -->
+	  <!-- =============================== -->
+                                     
+      <ontermdigit value="1"> 
+	    <goto value="$rootdir;/fm2_admin_change_greeting.asp" submit="*" method="get" /> 
+	  </ontermdigit> 
+      
+	  <!-- ===================== -->
+	  <!-- Press 2 to change PIN -->
+	  <!-- ===================== -->
+
+	  <ontermdigit value="2"> 
+	    <goto value="$rootdir;/fm2_admin_change_PIN.asp" submit="*" method="get" /> 
+	  </ontermdigit> 
+	  
+	  <!-- =========================================================== -->
+	  <!-- Press 3 for the follow me/find me number configuration menu -->
+	  <!-- =========================================================== -->	  
+      
+	  <ontermdigit value="3"> 
+	    <goto value="$rootdir;/fm2_admin_number_config.asp" submit="*" method="get" /> 
+	  </ontermdigit> 
+	  
+	  <!-- ============================================================================ -->
+	  <!-- Press 4 to change PIN verification setting (i.e., should we ask for the PIN) -->
+	  <!-- ============================================================================ -->	  
+      
+	  <ontermdigit value="4"> 
+	    <goto value="$rootdir;/fm2_admin_change_PIN.asp?ChangePIN=Verification" submit="*" method="get" /> 
+	  </ontermdigit> 
+	  
+	  <!-- ======================================================================== -->
+	  <!-- Press 5 to change PIN readback setting (i.e., should be readback the PIN)-->
+	  <!-- ======================================================================== -->	  
+      
+	  <ontermdigit value="5"> 
+	    <goto value="$rootdir;/fm2_admin_change_PIN.asp?ChangePIN=ReadBack" submit="*" method="get" /> 
+	  </ontermdigit> 
+	  
+	  <!-- ================================================ -->
+	  <!-- Press 6 to change Follow Me/Find Me mode setting -->
+	  <!-- (i.e., sequential or parallel calling)           -->
+	  <!-- ================================================ -->	  
+      
+	  <ontermdigit value="6"> 
+	    <goto value="$rootdir;/fm2_admin_change_PIN.asp?ChangePIN=Mode" submit="*" method="get" />
+	  </ontermdigit> 
+	  
+	  <!-- ======================================================== -->
+	  <!-- Press 7 for the follow me/find me global properties menu -->
+	  <!-- ======================================================== -->		  
+      
+	  <ontermdigit value="7"> 
+	    <goto value="$rootdir;/fm2_admin_global_properties.xml" submit="*" method="get" />
+	  </ontermdigit> 
+	  
+	  <!-- ================================== -->
+	  <!-- Press * to return to the main menu -->
+	  <!-- ================================== -->		  
+      
+	  <ontermdigit value="*">
+	    <goto value="$rootdir;/fm2_main.asp" submit="*" method="get" />
+	  </ontermdigit> 
+	  
+	  <cleardigits/>
+  </block>
+</callxml>

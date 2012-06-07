@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- =================================================== -->
+<!-- copyright 2000 by voxeo corporation. (see LGPL.txt) -->
+<!-- 										  			 -->
+<!-- v1.0 Coded in CallXML								 -->
+<!-- v1.0 Coded by Ryan Campbell and Stephen J. Lewis	 -->
+<!-- =================================================== -->
+
+<callxml>
+  <block label="globalProperties" repeat="3">
+    <playAudio format="audio/wav" value="$audiorootdir;/globalPropertiesTitle.wav" termdigits="123*" 
+	       cleardigits="FALSE" />
+    <playAudio format="audio/wav" value="$audiorootdir;/globalProperties.wav" termdigits="123*" 
+	       cleardigits="FALSE"/>
+		   
+	<!-- ================================================================ -->
+	<!-- Pressing 1 takes us to the enable/disable Follow Me/Find Me menu -->
+	<!-- ================================================================ -->
+
+    <ontermdigit value="1"> 
+      <goto value="$rootdir;/fm2_admin_enable.asp?Enable=FM2" submit="*" method="get" /> 
+    </ontermdigit> 
+	
+	<!-- ============================================================== -->
+	<!-- Pressing 2 takes us to the "Change your voicemail number" menu -->
+	<!-- ============================================================== -->	
+	
+    <ontermdigit value="2"> 
+      <goto value="$rootdir;/fm2_admin_change_vm_number.asp" submit="*" method="get" /> 
+    </ontermdigit> 
+	
+	<!-- ======================================================== -->
+	<!-- Pressing 3 takes us to the enable/disable voicemail menu -->
+	<!-- ======================================================== -->	
+	
+    <ontermdigit value="3"> 
+      <goto value="$rootdir;/fm2_admin_enable.asp?Enable=VM" submit="*" method="get" />
+    </ontermdigit> 
+	
+	<!-- ========================================== -->
+	<!-- Pressing * takes us back to the Admin menu -->
+	<!-- ========================================== -->		
+	
+    <ontermdigit value="*">
+      <goto value="$rootdir;/fm2_admin_menu.xml" submit="*" method="get" /> 
+    </ontermdigit> 
+	
+	<!-- ================================================== -->
+	<!-- On maxtime or maxsilence, repeat through the block -->
+	<!-- ================================================== -->
+	
+    <onmaxtime/>
+    <onmaxsilence/>
+  </block> <!-- globalProperties -->
+  
+  <!-- ======================== -->
+  <!-- Return to the Admin Menu -->
+  <!-- ======================== -->
+  
+  <goto value="$rootdir;/fm2_admin_menu.xml" submit="*" method="get" />   
+</callxml>
